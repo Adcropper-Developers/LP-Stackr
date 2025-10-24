@@ -183,10 +183,11 @@ section {
 }
 
 .logo {
-  width: 8rem;
+  width: 10rem;
   position: absolute;
-  top: 1rem;
-  left: var(--gutter-x);
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .section1 h1 {
@@ -196,20 +197,22 @@ section {
   line-height: 100%;
 }
 
+.section1 .text-part {
+  height: 100%;
+}
+
 .section1 .text-part,
 .section1 .anim-part {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .section1 .cta {
   margin-top: 1.5rem;
-}
-
-.section1 .anim-part {
-  position: relative;
 }
 
 .section1 .anim-part::before {
@@ -422,13 +425,24 @@ section {
 }
 
 /* Section 2 */
+.section2 {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
 .section2 .container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3rem;
+  gap: 3rem; */
+  max-width: 1500px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
 
 .box {
+  max-width: 440px;
+  aspect-ratio: 440/351;
   padding: 2.5rem;
   background-color: #1B1634;
   border-radius: 10px;
@@ -444,7 +458,8 @@ section {
 
 .box p {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
+  line-height: 140%;
   margin-top: 1rem;
   letter-spacing: 0.06rem;
 }
@@ -467,13 +482,13 @@ section {
 
 /* Section 3 */
 .section3 .container {
+  max-width: 1500px;
   display: grid;
   grid-template-columns: 1.3fr 0.9fr 0.9fr 0.9fr;
-  gap: 2rem;
   grid-template-areas:
     "C1 C2 C3 C4";
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
 .section3 .header {
@@ -500,6 +515,7 @@ section {
 }
 
 .card {
+  max-width: 280px;
   background-color: #1B1634;
   border-radius: 10px;
   padding: 1rem;
@@ -533,14 +549,22 @@ section {
 }
 
 .card:hover {
-  border: 2px solid #FFB458;
+  border: 1px solid #FFB458;
   transition: 0.2s all;
-  transform: scale(1.05);
 }
 
-.card:hover .card-header {
+.card-header {
   opacity: 1;
   transition: 0.2s all;
+}
+
+.card:nth-of-type(4) {
+  border: 2px solid #FFB458;
+}
+
+.card:hover {
+  border: 2px solid #FFB458;
+  transform: scale(1.05);
 }
 
 @media (hover: hover) {
@@ -550,7 +574,7 @@ section {
 }
 
 .card h3 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-style: italic;
   position: relative;
   z-index: 2;
@@ -577,18 +601,25 @@ section {
 }
 
 /* Section 4 */
+.section4 {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
 .section4 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0;
+  max-width: 1930px;
 }
 
 .section4 h1 {
   background: unset;
   -webkit-text-stroke: unset;
   font-style: italic;
-  font-size: 2rem;
+  font-size: 2.35rem;
+  margin-bottom: 3rem;
 }
 
 .game-wrapper {
@@ -597,11 +628,11 @@ section {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.5rem;
-  padding: 5rem 0px;
+  padding: 2rem 0px;
 }
 
 .game {
-  width: 19rem;
+  width: 22.5rem;
   border: 6px solid transparent;
   transition: 0.2s all;
   border-radius: 15px;
@@ -620,7 +651,8 @@ section {
 
 /* Section 5 */
 .section5 {
-  margin-top: 3rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
 .section5 .container {
@@ -877,6 +909,18 @@ footer .container P {
   }
 }
 
+@media (max-width: 1500px) {
+  .section2 .container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .section3 .container {
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 1300px) {
   .section1 .anim-part {
     width: 45%;
@@ -1019,7 +1063,7 @@ footer .container P {
   }
 
   .section1 {
-    height: 53rem;
+    height: 55rem;
   }
 
   .section1 .container {
@@ -1032,10 +1076,12 @@ footer .container P {
     position: relative;
     top: unset;
     left: unset;
+    transform: unset;
   }
 
   .section1 .text-part {
     width: 100%;
+    gap: 2rem;
   }
 
   .section1 .anim-part {
@@ -1071,6 +1117,11 @@ footer .container P {
   .section3 h1 {
     width: 100%;
     text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section3 h1 br {
+    display: none;
   }
 
   .section3 .container {
@@ -1085,7 +1136,7 @@ footer .container P {
   }
 
   .game {
-    width: 12.5rem;
+    width: 16rem;
   }
 
   .section5 .container {
@@ -1111,7 +1162,7 @@ footer .container P {
   }
 
   .section1 {
-    height: 51rem;
+    height: 57.5rem;
   }
 
   .section1 .container {
@@ -1120,7 +1171,13 @@ footer .container P {
 
   .section1 .anim-part {
     transform: scale(0.6);
-    margin-top: -7rem;
+    margin-top: -4rem;
+  }
+
+  .section1 h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.25rem;
   }
 
   .section2 .container {
